@@ -1,0 +1,157 @@
+// import 'package:flutter/material.dart';
+// import 'package:service_provider/constants/color_constant.dart';
+// import 'package:service_provider/models/user_model.dart';
+// import 'package:service_provider/repos/user_repo.dart';
+
+// import '../../models/house_model.dart';
+// import '../../utills/snippets.dart';
+// import '../chat/chat_room/chat_room.dart';
+
+// class CustomCard extends StatefulWidget {
+//   final HouseModel model;
+//   final Future<void> Function() onTap;
+//   final bool message;
+//   const CustomCard({
+//     Key? key,
+//     required this.model,
+//     required this.onTap,
+//     this.message = true,
+//   }) : super(key: key);
+
+//   @override
+//   State<CustomCard> createState() => _CustomCardState();
+// }
+
+// class _CustomCardState extends State<CustomCard> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       width: 300,
+//       child: Card(
+//         elevation: 5,
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Stack(
+//               children: [
+//                 Container(
+//                   height: 150,
+//                   width: double.infinity,
+//                   decoration: BoxDecoration(
+//                     image: DecorationImage(
+//                       image: NetworkImage(widget.model.houseImage),
+//                       fit: BoxFit.cover,
+//                     ),
+//                   ),
+//                 ),
+//                 Positioned.fill(child: Container(color: Colors.black26)),
+//                 Positioned(
+//                     bottom: 5,
+//                     left: 10,
+//                     child: FutureBuilder<UserModel>(
+//                       future: UserRepo.instance.getUserById(widget.model.uid),
+//                       builder: ((context, snapshot) {
+//                         if (!snapshot.hasData) {
+//                           return const SizedBox.shrink();
+//                         } else {
+//                           return Row(
+//                             children: [
+//                               Text(
+//                                 snapshot.data?.name ?? '',
+//                                 style: Theme.of(context)
+//                                     .textTheme
+//                                     .titleLarge
+//                                     ?.copyWith(
+//                                         color: Colors.white,
+//                                         fontWeight: FontWeight.w500),
+//                               ),
+//                             ],
+//                           );
+//                         }
+//                       }),
+//                     ))
+//               ],
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+//               child: Column(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Row(
+//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                     children: [
+//                       Text(
+//                         "PKR ${widget.model.housePrice}",
+//                         style: Theme.of(context)
+//                             .textTheme
+//                             .titleMedium
+//                             ?.copyWith(
+//                                 color: secondaryColor,
+//                                 fontWeight: FontWeight.bold),
+//                       ),
+//                       widget.message
+//                           ? InkWell(
+//                               onTap: () {
+//                                 push(context, ChatRoom(uid: widget.model.uid));
+//                               },
+//                               child: const Icon(Icons.message,
+//                                   color: secondaryColor, size: 22))
+//                           : Container()
+//                     ],
+//                   ),
+//                   Row(
+//                     children: [
+//                       const Icon(Icons.house, size: 20, color: secondaryColor),
+//                       const SizedBox(width: 10),
+//                       Text(
+//                         widget.model.houseNo,
+//                         overflow: TextOverflow.ellipsis,
+//                         style: Theme.of(context).textTheme.titleMedium,
+//                       ),
+//                     ],
+//                   ),
+//                   Row(
+//                     children: [
+//                       const Icon(Icons.area_chart,
+//                           size: 20, color: secondaryColor),
+//                       const SizedBox(width: 10),
+//                       Text(widget.model.houseArea),
+//                     ],
+//                   ),
+//                   Row(
+//                     children: [
+//                       const Icon(Icons.bed, size: 20, color: secondaryColor),
+//                       const SizedBox(width: 10),
+//                       Text("${widget.model.houseBedroom} BedRoom"),
+//                     ],
+//                   ),
+//                   Row(
+//                     children: [
+//                       const Icon(Icons.bathroom,
+//                           size: 20, color: secondaryColor),
+//                       const SizedBox(width: 10),
+//                       Text("${widget.model.houseBathroom} BathRoom"),
+//                     ],
+//                   ),
+//                   Row(
+//                     children: [
+//                       const Icon(Icons.pin_drop,
+//                           size: 20, color: secondaryColor),
+//                       const SizedBox(width: 10),
+//                       Text(
+//                         widget.model.houseAddress,
+//                         overflow: TextOverflow.ellipsis,
+//                         style: Theme.of(context).textTheme.titleMedium,
+//                       ),
+//                     ],
+//                   ),
+//                 ],
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

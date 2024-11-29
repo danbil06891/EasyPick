@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "531217768132",
+    "project_id": "easy-pick-40352",
+    "storage_bucket": "easy-pick-40352.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531217768132:android:d75157e5c062f133a5b391",
+        "android_client_info": {
+          "package_name": "com.example.food_fusion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2oEJpcUSwDZ6rtGtMqhM04J3zb8Vqwxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
